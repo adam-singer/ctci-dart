@@ -1,10 +1,10 @@
 /*
  * Implement an algorithm to determine if a string has all
- * unique characters. What if you cannot use addtional 
+ * unique characters. What if you cannot use addtional
  * data structures?
  */
 
-#import('dart:io');
+import 'dart:io';
 
 // optimal
 /* The time complexity for this code is O(n), where
@@ -15,7 +15,7 @@ bool isUniqueChars(String str) {
   if (str.length > 256) {
     return false;
   }
-  
+
   int checker = 0;
   for (int i = 0; i < str.length; i++) {
     int val = str.charCodeAt(i) - 'a'.charCodeAt(0);
@@ -25,19 +25,19 @@ bool isUniqueChars(String str) {
       checker |= (1 << val);
     }
   }
-  
+
   return true;
 }
 
 // optimal
-/* We can reduce our space usage by a factor 
- * of eight by using a bit vector. 
- */ 
+/* We can reduce our space usage by a factor
+ * of eight by using a bit vector.
+ */
 bool isUniqueChars2(String str) {
   if (str.length > 256) {
     return false;
   }
-  
+
   List<bool> char_set = new List<bool>(256);
   for (int i = 0; i < str.length; i++) {
     int val = str.charCodeAt(i);
@@ -47,7 +47,7 @@ bool isUniqueChars2(String str) {
       char_set[val] = true;
     }
   }
-  
+
   return true;
 }
 
@@ -69,7 +69,7 @@ bool isUniqueChars4(String str) {
   if (str.length > 256) {
     return false;
   }
-  
+
   Map m = new Map();
   str.splitChars().forEach((c) => m[c] = c);
   if (m.length == str.length) {
@@ -79,20 +79,20 @@ bool isUniqueChars4(String str) {
   }
 }
 
-// 
+//
 bool isUniqueChars5(String str) {
   if (str.length > 256) {
     return false;
   }
-  
+
   Map m = new Map();
   for (int i = 0; i < str.length; i++) {
     if (m.containsKey(str[i])) {
       return false;
     }
-    m[str[i]] = str[i]; 
+    m[str[i]] = str[i];
   }
-  
+
   return true;
 }
 

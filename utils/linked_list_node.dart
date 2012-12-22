@@ -10,7 +10,7 @@ class LinkedListNode {
     setNext(n);
     setPrevious(p);
   }
-  
+
   void setNext(LinkedListNode n) {
     next = n;
     if (this == last) {
@@ -20,14 +20,14 @@ class LinkedListNode {
       n.setPrevious(this);
     }
   }
-  
+
   void setPrevious(LinkedListNode p) {
     prev = p;
     if (p != null && p.next != this) {
       p.setNext(this);
     }
   }
-  
+
   String printFoward() {
     if (next != null) {
       return "$data->${next.printFoward()}";
@@ -35,7 +35,7 @@ class LinkedListNode {
       return data.toString();
     }
   }
-  
+
   LinkedListNode clone() {
     LinkedListNode next2 = null;
     if (next != null) {

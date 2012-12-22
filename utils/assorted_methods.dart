@@ -10,15 +10,15 @@ List<List<int>> randomMatrix(int M, int N, int min, int max) {
     matrix[i] = new List<int>(N);
     for (int j = 0; j < N; j++) {
       int x = random.nextInt(max);
-      
+
       // XXX: This is a bad hack cause Random still doesnt support
-      // some basic methods. 
+      // some basic methods.
       while (x < min) x = random.nextInt(max);
-      
+
       matrix[i][j] = x;
     }
   }
-  
+
   return matrix;
 }
 
@@ -39,7 +39,7 @@ void printIntMatrix(List<List<int>> matrix) {
     }
     sb.add("\n");
   }
-  
+
   print(sb.toString());
 }
 
@@ -47,7 +47,7 @@ LinkedListNode randomLinkedList(int N, int min, int max) {
   DRandom random = new DRandom.withSeed(10);
   int r = random.NextFromRange(min, max);
   LinkedListNode root = new LinkedListNode(r, null, null);
-  
+
   LinkedListNode prev = root;
   for (int i = 1; i < N; i++) {
     int data = random.NextFromRange(min, max);
@@ -55,6 +55,6 @@ LinkedListNode randomLinkedList(int N, int min, int max) {
     prev.setNext(next);
     prev = next;
   }
-  
+
   return root;
 }

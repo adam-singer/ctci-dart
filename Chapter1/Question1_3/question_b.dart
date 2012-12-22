@@ -2,25 +2,25 @@
  * if one is a permutation of the other
  */
 
-/* Solution 2: Check if the two strings have 
+/* Solution 2: Check if the two strings have
  * identical character counts.
  */
 
 /* We can also use the definition of an anagram
- * -- two words with the same character counts. 
+ * -- two words with the same character counts.
  * We simply iterate through this code, counting
- * how many times each character appears. Then, 
- * afterwards, we compare the two arrays. 
+ * how many times each character appears. Then,
+ * afterwards, we compare the two arrays.
  */
 
 bool permutation(String s, String t) {
   if (s.length != t.length) {
     return false;
   }
-  
+
   // Size of char space ASCII, 256
   List<int> letters = new List(256); // Assumption
-  
+
   List<String> s_array = s.splitChars();
   s_array.forEach((c) {
     // count number of each char in s.
@@ -30,7 +30,7 @@ bool permutation(String s, String t) {
       letters[c.charCodeAt(0)]++;
     }
   });
-  
+
   for (int i = 0; i < t.length; i++) {
     int c = t[i].charCodeAt(0);
     if (letters[c] == null) {
@@ -38,12 +38,12 @@ bool permutation(String s, String t) {
     } else {
       --letters[c];
     }
-    
+
     if (letters[c] < 0) {
       return false;
     }
   }
-  
+
   return true;
 }
 

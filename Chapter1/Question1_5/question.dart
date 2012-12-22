@@ -1,9 +1,9 @@
 /*
  * Implement a method to perform basic string compression
  * using the counts of repeated characters. For example,
- * the string aabcccccaaa would become a2b1c5a3. 
- * If the "compressed" string would not become smaller 
- * than the original string, your method should return the 
+ * the string aabcccccaaa would become a2b1c5a3.
+ * If the "compressed" string would not become smaller
+ * than the original string, your method should return the
  * original string.
  */
 
@@ -20,7 +20,7 @@ int countCompression(String str){
       count = 1;
     }
   }
-  
+
   size += 1 + count.toString().length;
   return size;
 }
@@ -41,7 +41,7 @@ String compressBad(String str) {
   if (size >= str.length) {
     return str;
   }
-  
+
   String mystr = "";
   String last = str[0];
   int count = 1;
@@ -54,16 +54,16 @@ String compressBad(String str) {
       count = 1;
     }
   }
-  
+
   return "$mystr$last$count";
 }
 
 String compressBetter(String str) {
-  int size = countCompression(str); 
+  int size = countCompression(str);
   if (size >= str.length) {
     return str;
   }
-  
+
   StringBuffer mystr = new StringBuffer();
   String last = str[0];
   int count = 1;
@@ -77,7 +77,7 @@ String compressBetter(String str) {
       count = 1;
     }
   }
-  
+
   mystr.add(last);
   mystr.add(count);
   return mystr.toString();
@@ -88,7 +88,7 @@ String compressAlternate(String str) {
   if (size >= str.length) {
     return str;
   }
-  
+
   List<String> array = new List<String>(size);
   int index = 0;
   String last = str[0];
@@ -102,7 +102,7 @@ String compressAlternate(String str) {
       count = 1;
     }
   }
-  
+
   index = setChar(array, last, index, count);
   return Strings.join(array, '');
 }

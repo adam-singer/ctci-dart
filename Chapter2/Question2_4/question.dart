@@ -11,7 +11,7 @@ LinkedListNode partition(LinkedListNode node, int x) {
   LinkedListNode beforeEnd;
   LinkedListNode afterStart;
   LinkedListNode afterEnd;
-  
+
   /* Partition list */
   while (node != null) {
     LinkedListNode next = node.next;
@@ -35,12 +35,12 @@ LinkedListNode partition(LinkedListNode node, int x) {
     }
     node = next;
   }
-  
+
   /* Merge before list and after list */
   if (beforeStart == null) {
     return afterStart;
   }
-  
+
   beforeEnd.next = afterStart;
   return beforeStart;
 }
@@ -49,16 +49,16 @@ void main() {
   List<int> vals = [1, 3, 7, 5, 2, 9, 4];
   LinkedListNode head = new LinkedListNode(vals[0], null, null);
   LinkedListNode current = head;
-  
+
   for (int i = 1; i < vals.length; i++) {
     current = new LinkedListNode(vals[i], null, current);
   }
-  
+
   print(head.printFoward());
-  
+
   /* Partition */
   LinkedListNode h = partition(head, 5);
-  
+
   /* Print Result */
   print(h.printFoward());
 }

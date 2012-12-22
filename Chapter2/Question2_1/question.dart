@@ -1,9 +1,9 @@
 /*
- * Write code to remove duplicates from an unsorted linked list. 
+ * Write code to remove duplicates from an unsorted linked list.
  * FOLLOW UP
  * How would you solve this problem if a temporary buffer is not
  * allowed?
- */ 
+ */
 import '../../utils/linked_list_node.dart';
 
 int tapB = 0;
@@ -35,7 +35,7 @@ void deleteDupsC(LinkedListNode head) {
   if (head == null) {
     return;
   }
-  
+
   LinkedListNode previous = head;
   LinkedListNode current = previous.next;
   while (current != null) {
@@ -55,10 +55,10 @@ void deleteDupsC(LinkedListNode head) {
       }
       runner = runner.next;
     }
-    
+
     /* If runner == current, then we didn't find any duplicate
-     * elements in the previous for loop. We then need to 
-     * increment current. 
+     * elements in the previous for loop. We then need to
+     * increment current.
      * If runner != current, then we must have hit the 'break'
      * condition, in which case we found a dup and current has
      * already been incremented.
@@ -74,7 +74,7 @@ void deleteDupsB(LinkedListNode head) {
   if (head == null) {
     return;
   }
-  
+
   LinkedListNode current = head;
   while (current != null) {
     /* Remove all future nodes that have the same value */
@@ -102,7 +102,7 @@ void main() {
     second.setPrevious(first);
     first = second;
   }
-  
+
   print(head.printFoward());
   LinkedListNode clone = head.clone();
   deleteDupsB(head);

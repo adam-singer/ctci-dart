@@ -7,8 +7,8 @@
  * they have the same characters, but in different
  * orders. If we put the strings in the same order
  * we just need to compare they are the same.
- * 
- * This may not be the most optimal solution. 
+ *
+ * This may not be the most optimal solution.
  */
 
 String sort(String s) {
