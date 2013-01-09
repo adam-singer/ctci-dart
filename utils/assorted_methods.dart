@@ -3,6 +3,14 @@ import 'dart:math';
 import 'linked_list_node.dart';
 import 'drandom.dart';
 
+String arrayToString(List<int> array) {
+  StringBuffer sb = new StringBuffer();
+  for (int v in array) {
+    sb.add("$v, ");
+  }
+  return sb.toString();
+}
+
 List<List<int>> randomMatrix(int M, int N, int min, int max) {
   Random random = new Random();
   List<List<int>> matrix = new List<List<int>>(M);
@@ -57,4 +65,9 @@ LinkedListNode randomLinkedList(int N, int min, int max) {
   }
 
   return root;
+}
+
+DRandom _random = new DRandom.withSeed(10);
+int randomIntInRange(int min, int max) {
+  return _random.NextFromRange(min, max);
 }
