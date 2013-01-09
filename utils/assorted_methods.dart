@@ -2,6 +2,7 @@ library assorted_methods;
 import 'dart:math';
 import 'linked_list_node.dart';
 import 'drandom.dart';
+import 'tree_node.dart';
 
 String arrayToString(List<int> array) {
   StringBuffer sb = new StringBuffer();
@@ -70,4 +71,36 @@ LinkedListNode randomLinkedList(int N, int min, int max) {
 DRandom _random = new DRandom.withSeed(10);
 int randomIntInRange(int min, int max) {
   return _random.NextFromRange(min, max);
+}
+
+TreeNode createTreeFromArray(List<int> array) {
+  if (array.length > 0) {
+    TreeNode root = new TreeNode(array[0]);
+    Queue<TreeNode> queue = new Queue();
+    queue.add(root);
+    bool done = false;
+    int i = 1;
+    while (!done) {
+      TreeNode r = queue.first;
+      if (r.left == null) {
+        r.left = new TreeNode(array[i]);
+        i++;
+        queue.add(r.left);
+      } else if (r.right == null) {
+        r.right = new TreeNode(array[i]);
+        i++;
+        queue.add(r.right);
+      } else {
+        queue.removeFirst();
+      }
+
+      if (i == array.length) {
+        done = true;
+      }
+    }
+
+    return root;
+  } else {
+    return null;
+  }
 }
