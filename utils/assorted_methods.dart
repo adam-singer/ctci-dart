@@ -104,3 +104,12 @@ TreeNode createTreeFromArray(List<int> array) {
     return null;
   }
 }
+
+TreeNode randomBST(int N, int min, int max) {
+  int d = randomIntInRange(min, max);
+  TreeNode root = new TreeNode(d);
+  for (int i = 1; i < N; i++) {
+    root.insertInOrder(randomIntInRange(min, max));
+  }
+  return root;
+}
