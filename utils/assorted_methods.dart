@@ -4,12 +4,39 @@ import 'linked_list_node.dart';
 import 'drandom.dart';
 import 'tree_node.dart';
 
+Random rng = new Random();
+DRandom _random = new DRandom.withSeed(10);
+
+class Point {
+  var x;
+  var y;
+  Point(this.x, this.y);
+}
+
+String listOfPointsToString(List<Point> list) {
+  StringBuffer buffer = new StringBuffer();
+  for (Point p in list) {
+    buffer.add("(${p.x}, ${p.y})");
+  }
+
+  return buffer.toString();
+}
+
 String arrayToString(List<int> array) {
   StringBuffer sb = new StringBuffer();
   for (int v in array) {
     sb.add("$v, ");
   }
   return sb.toString();
+}
+
+List<int> randomArray(int N, int min, int max) {
+  List<int> array = new List<int>(N);
+  for (int j = 0; j < N; j++) {
+    array[j] = randomIntInRange(min, max);
+  }
+
+  return array;
 }
 
 List<List<int>> randomMatrix(int M, int N, int min, int max) {
@@ -68,9 +95,15 @@ LinkedListNode randomLinkedList(int N, int min, int max) {
   return root;
 }
 
-DRandom _random = new DRandom.withSeed(10);
+
 int randomIntInRange(int min, int max) {
-  return _random.NextFromRange(min, max);
+  //return _random.NextFromRange(min, max);
+  int range = max - min;
+  if (range <= 0) {
+      throw new ArgumentError("min is greater then or equal to max");
+  }
+  range = rng.nextInt(range);
+  return min + range;
 }
 
 TreeNode createTreeFromArray(List<int> array) {
