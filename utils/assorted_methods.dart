@@ -1,4 +1,5 @@
 library assorted_methods;
+import 'dart:collection';
 import 'dart:math';
 import 'linked_list_node.dart';
 import 'drandom.dart';
