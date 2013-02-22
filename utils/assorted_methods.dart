@@ -4,6 +4,7 @@ import 'dart:math';
 import 'linked_list_node.dart';
 import 'drandom.dart';
 import 'tree_node.dart';
+import 'trie.dart';
 
 Random rng = new Random();
 DRandom _random = new DRandom.withSeed(10);
@@ -148,9 +149,14 @@ TreeNode randomBST(int N, int min, int max) {
   return root;
 }
 
+Trie getTrieDictionary() {
+  return new Trie(getListOfWords());
+}
+
 List<String> getListOfWords() {
   // Words in the dictionary.
   List<String> wordList = [
+                       "google", "gurus",
                        "the",
                        "of",
                        "and",
