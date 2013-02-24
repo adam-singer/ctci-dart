@@ -42,16 +42,34 @@ List<int> randomArray(int N, int min, int max) {
 }
 
 List<List<int>> randomMatrix(int M, int N, int min, int max) {
+  // TODO: also support negative min....
+  // TODO: this implementation has multiple flaws and should not
+  // be used for any true type of randomness.
+  // Max should be inclusive for this.
+  print("WARNING: random matrix has changed to max inclusive");
   Random random = new Random();
   List<List<int>> matrix = new List<List<int>>(M);
   for (int i = 0; i < M; i++) {
     matrix[i] = new List<int>(N);
     for (int j = 0; j < N; j++) {
-      int x = random.nextInt(max);
+      int x = random.nextInt(max+1);
+
+      if (min < 0) {
+        if (random.nextBool()) {
+          x = -x;
+        }
+      }
 
       // XXX: This is a bad hack cause Random still doesnt support
       // some basic methods.
-      while (x < min) x = random.nextInt(max);
+      while (x < min)  {
+        x = random.nextInt(max+1);
+        if (min < 0) {
+          if (random.nextBool()) {
+            x = -x;
+          }
+        }
+      }
 
       matrix[i][j] = x;
     }
