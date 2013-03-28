@@ -1,10 +1,11 @@
 import 'dart:math';
+import 'dart:collection';
 
 void printQueue(Queue<int> q, int x) {
   StringBuffer sb = new StringBuffer();
-  sb.add("${x}: ");
+  sb.write("${x}: ");
   for (int a in q) {
-    sb.add("${a ~/ x}, ");
+    sb.write("${a ~/ x}, ");
   }
   print(sb.toString());
 }

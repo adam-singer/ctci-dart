@@ -18,7 +18,7 @@ class Point {
 String listOfPointsToString(List<Point> list) {
   StringBuffer buffer = new StringBuffer();
   for (Point p in list) {
-    buffer.add("(${p.x}, ${p.y})");
+    buffer.write("(${p.x}, ${p.y})");
   }
 
   return buffer.toString();
@@ -27,7 +27,7 @@ String listOfPointsToString(List<Point> list) {
 String arrayToString(List<int> array) {
   StringBuffer sb = new StringBuffer();
   for (int v in array) {
-    sb.add("$v, ");
+    sb.write("$v, ");
   }
   return sb.toString();
 }
@@ -83,17 +83,17 @@ void printIntMatrix(List<List<int>> matrix) {
   for (int i = 0; i < matrix.length; i++) {
     for (int j = 0; j < matrix[i].length; j++) {
       if (matrix[i][j] < 10 && matrix[i][j] > -10) {
-        sb.add(' ');
+        sb.write(' ');
       }
       if (matrix[i][j] < 100 && matrix[i][j] > -100) {
-        sb.add(' ');
+        sb.write(' ');
       }
       if (matrix[i][j] >= 0) {
-        sb.add(' ');
+        sb.write(' ');
       }
-      sb.add(' ${matrix[i][j]}');
+      sb.write(' ${matrix[i][j]}');
     }
-    sb.add("\n");
+    sb.write("\n");
   }
 
   print(sb.toString());

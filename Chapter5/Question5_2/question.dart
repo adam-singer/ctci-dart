@@ -5,7 +5,7 @@ String printBinary(double n) {
   }
 
   StringBuffer binary = new StringBuffer();
-  binary.add(".");
+  binary.write(".");
   while (n > 0) {
     /* Setting a limit on length: 32 characters */
     if (binary.length > 32) {
@@ -15,10 +15,10 @@ String printBinary(double n) {
 
     double r = n * 2;
     if (r >= 1) {
-      binary.add(1);
+      binary.write(1);
       n = r - 1;
     } else {
-      binary.add(0);
+      binary.write(0);
       n = r;
     }
   }
@@ -33,7 +33,7 @@ String printBinary2(double n) {
 
   StringBuffer binary = new StringBuffer();
   double frac = 0.5;
-  binary.add(".");
+  binary.write(".");
   while (n > 0) {
     /* Setting a limit on length: 32 characters */
     if (binary.length >= 32) {
@@ -42,10 +42,10 @@ String printBinary2(double n) {
     }
 
     if (n >= frac) {
-      binary.add(1);
+      binary.write(1);
       n -= frac;
     } else {
-      binary.add(0);
+      binary.write(0);
     }
 
     frac /= 2;
@@ -57,7 +57,7 @@ String printBinary2(double n) {
 void main() {
   String bs = printBinary(0.125);
   print(bs);
-  print((0.125).toRadixString(2));
+  //print((0.125).toRadixString(2));
 
   for (int i = 0; i < 1000; i++) {
     double n = i / 10000.0;

@@ -28,7 +28,7 @@ int countCompression(String str){
 int setChar(List<String> array, String c, int index, int count) {
   array[index] = c;
   index++;
-  List<String> cnt = count.toString().splitChars();
+  List<String> cnt = count.toString().split('');
   for (String x in cnt) {
     array[index] = x;
     index++;
@@ -71,15 +71,15 @@ String compressBetter(String str) {
     if (str[i] == last) {
       count++;
     } else {
-      mystr.add(last);
-      mystr.add(count);
+      mystr.write(last);
+      mystr.write(count);
       last = str[i];
       count = 1;
     }
   }
 
-  mystr.add(last);
-  mystr.add(count);
+  mystr.write(last);
+  mystr.write(count);
   return mystr.toString();
 }
 
@@ -104,7 +104,7 @@ String compressAlternate(String str) {
   }
 
   index = setChar(array, last, index, count);
-  return Strings.join(array, '');
+  return array.join();
 }
 
 void main() {

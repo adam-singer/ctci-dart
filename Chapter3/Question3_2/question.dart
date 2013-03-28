@@ -78,7 +78,7 @@ void main() {
     int value = randomIntInRange(0, 100);
     stack.push(value);
     stack2.push(value);
-    sb.add("$value, ");
+    sb.write("$value, ");
   }
   print(sb.toString());
   print("");

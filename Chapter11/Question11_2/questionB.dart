@@ -1,8 +1,8 @@
 
 String sortChars(String s) {
-  List<String> content = s.splitChars();
+  List<String> content = s.split('');
   content.sort();
-  return Strings.concatAll(content);
+  return content.join();
 }
 
 void sort(List<String> array) {

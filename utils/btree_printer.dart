@@ -23,13 +23,13 @@ class BTreePrinter {
     List<TreeNode> newNodes = new List<TreeNode>();
     for (TreeNode node in nodes) {
       if (node != null) {
-        sb.add(node.data);
+        sb.write(node.data);
         newNodes.add(node.left);
         newNodes.add(node.right);
       } else {
         newNodes.add(null);
         newNodes.add(null);
-        sb.add(" ");
+        sb.write(" ");
       }
 
 
@@ -48,7 +48,7 @@ class BTreePrinter {
         }
 
         if (nodes[j].left != null) {
-          sb.add("/");
+          sb.write("/");
         } else {
           BTreePrinter.printWhitespaces(1, sb);
         }
@@ -56,7 +56,7 @@ class BTreePrinter {
         BTreePrinter.printWhitespaces(i + i - 1, sb);
 
         if (nodes[j].right != null) {
-          sb.add("\\");
+          sb.write("\\");
         } else {
           BTreePrinter.printWhitespaces(1, sb);
         }
@@ -73,7 +73,7 @@ class BTreePrinter {
 
   static void printWhitespaces(int count, StringBuffer sb) {
     for (int i = 0; i < count; i++) {
-      sb.add(" ");
+      sb.write(" ");
     }
   }
 

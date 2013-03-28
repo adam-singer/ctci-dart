@@ -31,7 +31,7 @@ void PrintScreen(List<List<Color>> screen) {
   StringBuffer sb = new StringBuffer();
   for (int i = 0; i < screen.length; i++) {
     for (int j = 0; j < screen[0].length; j++) {
-      sb.add(PrintColor(screen[i][j]));
+      sb.write(PrintColor(screen[i][j]));
     }
     print(sb.toString());
     sb.clear();

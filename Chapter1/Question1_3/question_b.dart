@@ -21,18 +21,18 @@ bool permutation(String s, String t) {
   // Size of char space ASCII, 256
   List<int> letters = new List(256); // Assumption
 
-  List<String> s_array = s.splitChars();
+  List<String> s_array = s.split('');
   s_array.forEach((c) {
     // count number of each char in s.
-    if (letters[c.charCodeAt(0)] == null) {
-      letters[c.charCodeAt(0)] = 1;
+    if (letters[c.codeUnitAt(0)] == null) {
+      letters[c.codeUnitAt(0)] = 1;
     } else {
-      letters[c.charCodeAt(0)]++;
+      letters[c.codeUnitAt(0)]++;
     }
   });
 
   for (int i = 0; i < t.length; i++) {
-    int c = t[i].charCodeAt(0);
+    int c = t[i].codeUnitAt(0);
     if (letters[c] == null) {
       letters[c] = -1;
     } else {

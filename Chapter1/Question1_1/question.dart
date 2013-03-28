@@ -18,7 +18,7 @@ bool isUniqueChars(String str) {
 
   int checker = 0;
   for (int i = 0; i < str.length; i++) {
-    int val = str.charCodeAt(i) - 'a'.charCodeAt(0);
+    int val = str.codeUnits[i] - 'a'.codeUnits[0];
     if ((checker & (1 << val)) > 0) {
       return false;
     } else {
@@ -40,7 +40,7 @@ bool isUniqueChars2(String str) {
 
   List<bool> char_set = new List<bool>(256);
   for (int i = 0; i < str.length; i++) {
-    int val = str.charCodeAt(i);
+    int val = str.codeUnits[i];
     if (char_set[val] != null) {
       return false;
     } else {
@@ -57,7 +57,7 @@ bool isUniqueChars3(String str) {
     return false;
   }
 
-  if (new Set.from(str.splitChars()).length == str.length) {
+  if (new Set.from(str.codeUnits).length == str.length) {
     return true;
   } else {
     return false;
@@ -71,7 +71,7 @@ bool isUniqueChars4(String str) {
   }
 
   Map m = new Map();
-  str.splitChars().forEach((c) => m[c] = c);
+  str.codeUnits.forEach((c) => m[c] = c);
   if (m.length == str.length) {
     return true;
   } else {

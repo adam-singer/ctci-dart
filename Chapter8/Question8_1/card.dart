@@ -25,19 +25,19 @@ abstract class Card {
   void print_card() {
     List<String> faceValues = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
     StringBuffer sb = new StringBuffer();
-    sb.add(faceValues[faceValue - 1]);
+    sb.write(faceValues[faceValue - 1]);
     switch(suit) {
       case Suit.Club:
-        sb.add('c');
+        sb.write('c');
         break;
       case Suit.Heart:
-        sb.add('h');
+        sb.write('h');
         break;
       case Suit.Diamond:
-        sb.add('d');
+        sb.write('d');
         break;
       case Suit.Spade:
-        sb.add('s');
+        sb.write('s');
         break;
     }
 

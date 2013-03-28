@@ -12,7 +12,7 @@
  */
 
 String sort(String s) {
-  var r = s.splitChars();
+  var r = s.codeUnits;
   r.sort((a, b) => a.compareTo(b));
   return r.toString();
 //  return (s.splitChars()..sort((a,b)=>a.compareTo(b))).toString();

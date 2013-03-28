@@ -47,5 +47,5 @@ void main() {
   }
 
   replaceSpaces(arr, str.length);
-  print('"${Strings.join(arr, '')}"');
+  print('"${arr.join()}"');
 }

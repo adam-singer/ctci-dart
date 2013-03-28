@@ -55,12 +55,12 @@ void printBoard(List<int> columns) {
   print("-----------------");
   StringBuffer sb = new StringBuffer();
   for (int i = 0; i < GRID_SIZE; i++) {
-    sb.add("|");
+    sb.write("|");
     for (int j = 0; j < GRID_SIZE; j++) {
       if (columns[i] == j) {
-        sb.add("Q|");
+        sb.write("Q|");
       } else {
-        sb.add(" |");
+        sb.write(" |");
       }
     }
     print(sb.toString());

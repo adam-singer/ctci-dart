@@ -49,7 +49,7 @@ void findSum(TreeNode node, int sum) {
 void print_path(List<int> path, int start, int end) {
   StringBuffer sb = new StringBuffer();
   for (int i = start; i <= end; i++) {
-    sb.add("${path[i]} ");
+    sb.write("${path[i]} ");
   }
 
   print(sb.toString());

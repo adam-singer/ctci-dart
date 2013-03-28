@@ -145,11 +145,11 @@ String insertParensAround(String expression, int ind) {
   }
 
   StringBuffer sb = new StringBuffer();
-  sb.add(expression.substring(0, left));
-  sb.add('(');
-  sb.add(expression.substring(left, right + 1));
-  sb.add(')');
-  sb.add(expression.substring(right + 1));
+  sb.write(expression.substring(0, left));
+  sb.write('(');
+  sb.write(expression.substring(left, right + 1));
+  sb.write(')');
+  sb.write(expression.substring(right + 1));
   String newexpression = sb.toString();
   return newexpression;
 }

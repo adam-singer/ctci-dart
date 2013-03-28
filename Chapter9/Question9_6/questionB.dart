@@ -5,7 +5,7 @@ void addParen(List<String> list, int leftRem, int rightRem, List<String> str, in
   }
 
   if (leftRem == 0 && rightRem == 0) { /* all out of left and right parentheses */
-    String s = Strings.concatAll(str);
+    String s = str.join();
     list.add(s);
   } else {
     if (leftRem > 0) { // try a left paren, if there are some available

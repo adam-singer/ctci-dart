@@ -51,7 +51,7 @@ Set<String> getOneEditWords(String word) {
   for (int i = 0; i < word.length; i++) {
     List<String> wordArray = word.split("");
     // change that letter to something else.
-    for (int c = 'A'.charCodes[0]; c <= 'Z'.charCodes[0]; c++) {
+    for (int c = 'A'.codeUnits[0]; c <= 'Z'.codeUnits[0]; c++) {
       var char = new String.fromCharCode(c);
       if (char != word[i]) {
         wordArray[i] = char;

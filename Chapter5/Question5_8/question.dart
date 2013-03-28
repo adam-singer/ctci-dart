@@ -44,7 +44,7 @@ void drawLine(List<int> screen, int width, int x1, int x2, int y) {
 String printByte(int b) {
   StringBuffer sb = new StringBuffer();
   for (int i = 7; i >= 0; i--) {
-    sb.add((b>>i)&1);
+    sb.write((b>>i)&1);
   }
 
   return sb.toString();
@@ -56,7 +56,7 @@ void printScreen(List<int> screen, int width) {
   for (int r = 0; r < height; r++) {
     for (int c = 0; c < width; c+=8) {
       int b = screen[computeByteNum(width, c, r)];
-      sb.add(printByte(b));
+      sb.write(printByte(b));
     }
     print(sb.toString());
     sb.clear();

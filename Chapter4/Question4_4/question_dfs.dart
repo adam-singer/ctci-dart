@@ -34,9 +34,9 @@ void printResult(List<List<TreeNode>> result) {
   int depth = 0;
   for (List<TreeNode> entry in result) {
     StringBuffer sb = new StringBuffer();
-    sb.add("Link list at depth ${depth}:");
+    sb.write("Link list at depth ${depth}:");
     for (TreeNode i in entry) {
-      sb.add(" ${i.data}");
+      sb.write(" ${i.data}");
     }
     print(sb.toString());
     sb.clear();
